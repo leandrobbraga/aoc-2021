@@ -4,7 +4,7 @@ use std::{
 };
 
 fn main() {
-    let buffer = read_file();
+    let buffer = read_file("./examples/input/day-01.txt");
     let measurements: Vec<u32> = buffer
         .lines()
         .filter_map(|line_result| line_result.ok())
@@ -15,8 +15,8 @@ fn main() {
     part_2(&measurements);
 }
 
-fn read_file() -> io::BufReader<File> {
-    let file = File::open("./examples/input/day-01.txt").unwrap();
+fn read_file(filepath: &str) -> io::BufReader<File> {
+    let file = File::open(filepath).unwrap();
     io::BufReader::new(file)
 }
 
